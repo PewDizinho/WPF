@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Desafio
 {
@@ -36,36 +37,39 @@ namespace Desafio
 
         private void SaveButton(object sender, RoutedEventArgs e)
         {
-
-
-            //var address = new Address(endereco.Text, Convert.ToInt32(number.Text), city.Text, state.Text, neighborhood.Text);
-            User Usr = new()
+            int? parsed = null;
+            if (string.IsNullOrWhiteSpace(endereco.Text))
             {
-                
+                MessageBox.Show("Por favor, insira um endereço válido.", "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            if (!string.IsNullOrWhiteSpace(number.Text))
+            {
+                if (!int.TryParse(number.Text, out int parsedNumber))
+                {
+                    MessageBox.Show("Por favor, insira um número válido.", "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+                parsed = parsedNumber;
+            }
+
+            Address addr = new()
+            {
+                Addres = endereco.Text.ToString(),
+                Number = parsed,
+                City = city.Text.ToString(),
+                State = state.Text.ToString(),
+                Neighborhood = neighborhood.Text.ToString()
             };
 
+            addr.Save();
+            var test = addr.Read();
 
-            //Usr.Save();
-
-            MessageBox.Show(Usr.ReadDatabase().Name);
-            //Close();
-
-            /*
-
-             user.Save();
-             user.Show();
-
-
-
-             /*MessageBox.Show(map.Width.ToString());
-             string textBlockContent = address.Text;
-             MessageBox.Show(textBlockContent);*/
+            MessageBox.Show(test.Addres + " " + test.Number.ToString() + " " + test.City + " " + test.State + " " + test.Neighborhood);
         }
 
-        private void ShowButton(object sender, RoutedEventArgs e)
-        {
-            // MessageBox.Show(Address.toJson().ToString());
-        }
+
     }
 
 

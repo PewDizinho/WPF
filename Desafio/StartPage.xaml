@@ -40,8 +40,16 @@
             <TextBox x:Name="city" Grid.Column="1" Grid.Row="0" VerticalAlignment="Bottom"/>
 
 
-            <Label  Content="Estado" Grid.Row="1" Grid.Column="1" Style="{StaticResource LabelText}"  HorizontalAlignment="Center" VerticalAlignment="Top"/>
-            <ComboBox x:Name="state" Grid.Column="1" Grid.Row="1"  VerticalAlignment="Top" HorizontalAlignment="Center" Width="250" Height="40" SelectionChanged="ComboBox_SelectionChanged" Margin="0,35,0,0" >
+
+            <Label Content="Bairro" Grid.Row="2"  Style="{StaticResource LabelText}"  HorizontalAlignment="Center" VerticalAlignment="Top"/>
+            <TextBox x:Name="neighborhood" Grid.Row="2"   HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+
+            <Label Content="Complemento" Grid.Row="1" Grid.Column="1"  Style="{StaticResource LabelText}"  HorizontalAlignment="Center" VerticalAlignment="Top"/>
+            <TextBox x:Name="complemento" Grid.Row="1"   Grid.Column="1"  HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+
+
+            <Label  Content="Estado" Grid.Row="2" Grid.Column="1" Style="{StaticResource LabelText}"  HorizontalAlignment="Center" VerticalAlignment="Top"/>
+            <ComboBox x:Name="state" Grid.Column="1" Grid.Row="2"  VerticalAlignment="Top" HorizontalAlignment="Center" Width="250" Height="40" SelectionChanged="ComboBox_SelectionChanged" Margin="0,35,0,0" >
                 <ComboBoxItem Content="AC"/>
                 <ComboBoxItem Content="AL"/>
                 <ComboBoxItem Content="AP"/>
@@ -72,26 +80,9 @@
 
             </ComboBox>
 
-            <Label Content="Bairro" Grid.Row="2" Grid.ColumnSpan="2" Style="{StaticResource LabelText}"  HorizontalAlignment="Center" VerticalAlignment="Top"/>
-            <TextBox x:Name="neighborhood" Grid.Row="2"  Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
-
         </Grid>
 
-
-
-        <Grid Grid.Row="3">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <Button Content="Salvar" Grid.Column="3" Style="{StaticResource RoundedButton}" Click="SaveButton"/>
-            <Button Content="Mostrar"  Style="{StaticResource RoundedButton}" Click="ShowButton"/>
-        </Grid>
-
-
-
-
-
+        <Button Content="Continuar"  Grid.Row="3" Grid.Column="3" Style="{StaticResource RoundedButton}" Click="SaveButton"/>
 
 
     </Grid>

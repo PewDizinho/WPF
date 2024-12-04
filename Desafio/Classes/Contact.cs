@@ -1,29 +1,22 @@
-﻿using SQLite;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Linq;
 using System.Text;
-using System.Text.Json.Nodes;
 using System.Threading.Tasks;
-using System.Windows;
+using SQLite;
 
 namespace Desafio.Classes
 {
-    internal class User
+    internal class Contact
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string Cpf { get; set; }
-        public string Rg { get; set; }
-        public string Birthdate { get; set; }
-        public string Job { get; set; }
-        public string Education { get; set; }
+        public string DDD { get; set; }
+        public string Number { get; set; }
+        public string Operadora { get; set; }
 
 
-
-        private static string databasename = "User.db";//User.db Contact.db e Address.db
+        private static string databasename = "Contact.db";//User.db Contact.db e Address.db
         private static string folderpath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
         private static string databasepath = System.IO.Path.Combine(folderpath, databasename);
 
@@ -31,8 +24,8 @@ namespace Desafio.Classes
         {
             using (SQLite.SQLiteConnection connection = new(databasepath))
             {
-                connection.CreateTable<User>();
-                connection.DeleteAll<User>();
+                connection.CreateTable<Contact>();
+                connection.DeleteAll<Contact>();
 
             }
         }
@@ -42,21 +35,22 @@ namespace Desafio.Classes
             Delete();
             using (SQLite.SQLiteConnection connection = new(databasepath))
             {
-                connection.CreateTable<User>();
+                connection.CreateTable<Contact>();
                 connection.Insert(this);
             }
         }
-        public User Read()
+        public Contact Read()
         {
             using (SQLite.SQLiteConnection connection = new(databasepath))
             {
-                connection.CreateTable<User>();
-                var users = connection.Table<User>().ToList();
-                return users[0];
+                connection.CreateTable<Contact>();
+                /*  var address = connection.Table<Contact>().ToList();
+                  return address[0];*/
+                return connection.Table<Contact>().ToList()[0];
 
             }
         }
-
-
     }
+
+
 }
