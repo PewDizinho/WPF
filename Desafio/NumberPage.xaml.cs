@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Desafio.Classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,14 +21,35 @@ namespace Desafio
     /// </summary>
     public partial class NumberPage : Page
     {
-        public NumberPage()
+        private MainWindow _mainWindow;
+        public NumberPage(MainWindow mainWindow)
         {
             InitializeComponent();
+            _mainWindow = mainWindow;
         }
 
         private void ContinueButton(object sender, RoutedEventArgs e)
         {
-              
+            if (string.IsNullOrEmpty(number.Text))
+            {
+                MessageBox.Show("Por favor, insira um número válido.", "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+      
+            Contact contact = new()
+            {
+                DDD = ddd.Text,
+                Number = number.Text,
+                Operadora = operadora.Text
+
+            };
+
+            contact.Save();
+           
+
+            _mainWindow.MainFrame.Content = new UserPage(_mainWindow);
+
         }
     }
 }

@@ -34,7 +34,7 @@
             <TextBox x:Name="number"  Grid.Row="1"  VerticalAlignment="Bottom"/>
 
             <Label Content="Operadora" Grid.Row="2"  Style="{StaticResource LabelText}"  HorizontalAlignment="Center" VerticalAlignment="Top"/>
-            <TextBox x:Name="Operadora" Grid.Row="2" VerticalAlignment="Bottom"/>
+            <TextBox x:Name="operadora" Grid.Row="2" VerticalAlignment="Bottom"/>
 
 
         </Grid>

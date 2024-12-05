@@ -65,8 +65,7 @@ namespace Desafio
 
             addr.Save();
             var test = addr.Read();
-
-            MessageBox.Show(test.Addres + " " + test.Number.ToString() + " " + test.City + " " + test.State + " " + test.Neighborhood);
+            _mainWindow.ChangePage(new NumberPage(_mainWindow));
         }
 
 

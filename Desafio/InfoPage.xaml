@@ -1,0 +1,68 @@
+﻿<Page x:Class="Desafio.InfoPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Desafio"
+      mc:Ignorable="d" 
+              d:DesignHeight="450" d:DesignWidth="800"
+      Title="MainMenu">
+    <Grid x:Name="MainGrid" Background="#005783">
+        <!-- Conteúdo Inicial -->
+        <Grid x:Name="InitialContent">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Título -->
+            <Grid>
+                <Label Content="Aquinator" HorizontalAlignment="Center" FontSize="50" Foreground="White" Margin="0,0,0,0"/>
+                <Label Content="Não é o Akinator" HorizontalAlignment="Center" FontSize="10" Foreground="White" Margin="0,66,0,0"/>
+            </Grid>
+
+            <Grid Grid.Row="1" Margin="15,0,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Label x:Name="name"  Content="Nome: " Grid.Row="0" FontSize="20" Style="{StaticResource LabelText}" HorizontalAlignment="Left"/>
+                <Label x:Name="cpf"  Content="Cpf: " Grid.Row="1" FontSize="20" Style="{StaticResource LabelText}" HorizontalAlignment="Left"/>
+                <Label x:Name="age"  Content="Idade: " Grid.Row="2" FontSize="20" Style="{StaticResource LabelText}" HorizontalAlignment="Left"/>
+                <Label x:Name="genre"  Content="Gênero: " Grid.Row="3" FontSize="20" Style="{StaticResource LabelText}" HorizontalAlignment="Left"/>
+                <Label x:Name="job"  Content="Profissão: " Grid.Row="4" FontSize="20" Style="{StaticResource LabelText}" HorizontalAlignment="Left"/>
+
+                <Label x:Name="education"  Content="Escolaridade: " Grid.Row="0" Grid.Column="1" FontSize="20" Style="{StaticResource LabelText}" HorizontalAlignment="Left"/>
+                <Label x:Name="DDD"  Content="Número: " Grid.Row="1" Grid.Column="1" FontSize="20" Style="{StaticResource LabelText}" HorizontalAlignment="Left"/>
+                <Label x:Name="operadora"  Content="Operadora: " Grid.Row="2" FontSize="20" Style="{StaticResource LabelText}" HorizontalAlignment="Left" Grid.ColumnSpan="2" Margin="392,0,0,0"/>
+                <TextBlock MaxWidth="300" MaxHeight="1000" x:Name="address" Text="Endereço: " 
+           Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="4" 
+            FontSize="20" Foreground="White" Margin="5,0,0,0"
+           HorizontalAlignment="Left" TextWrapping="Wrap"/>
+
+
+
+            </Grid>
+
+
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Content="Excluir" Grid.Column="0" Style="{StaticResource RoundedButton}"  HorizontalAlignment="Center" VerticalAlignment="Center"  Click="RemoveAll"/>
+                <Button Content="Sim" Grid.Column="1" Style="{StaticResource RoundedButton}"  HorizontalAlignment="Center" VerticalAlignment="Center"  Click="ChangePage"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>
